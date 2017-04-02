@@ -61,7 +61,6 @@ function ENT:Think() --//think function of the card. any actions can be done in 
 	if (sock && !sock:IsValid()) then
 		self:ResetSocket()
 	end
-	if (!self.OwnerObj) then Msg("No OwnerObj in Entity\n") end
 	
 	if (self.OwnerObj && self.OwnerObj:IsValid()) then
 		self.CurrentDist = self:GetPos():Distance(self.OwnerObj:GetPos())
