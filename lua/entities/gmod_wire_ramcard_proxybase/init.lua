@@ -67,14 +67,13 @@ function ENT:Think() --//think function of the card. any actions can be done in 
 		self.CurrentDist = self:GetPos():Distance(self.OwnerObj:GetPos())
 		self:SetOverlayText("Wire RAM-Card\nProximity ("..self.SizePrint..")\nMax Owner Distance: "..self.MaxDist.."\nDistance Now: "..self.CurrentDist)
 	elseif (self.OwnerID) then
+		self.CurrentDist = -1
 		for _,ply in pairs( player.GetAll() ) do
 			if (ply:SteamID() == self.OwnerID) then
 				self.OwnerObj = ply
 				break
 			end
 		end
-		self.OwnerObj = nil
-		self.CurrentDist = -1
 	end
 	if (!self.OwnerObj || !self.OwnerObj:IsValid()) then
 		self:SetOverlayText("Wire RAM-Card\nProximity ("..self.SizePrint..")\nMax Owner Distance: "..self.MaxDist.."\nUser Disconnected!")
